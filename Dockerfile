@@ -14,7 +14,8 @@ RUN \
 	pip3 install --upgrade \
 		transmissionrpc \
 		python-telegram-bot \
-		flexget && \
+		flexget \
+		deluge-client && \
 	sed -i 's/^CREATE_MAIL_SPOOL=yes/CREATE_MAIL_SPOOL=no/' /etc/default/useradd && \
 	echo "**** cleanup ****" && \
 	rm -rf \
@@ -30,6 +31,7 @@ WORKDIR /config
 
 # expose port for flexget webui
 EXPOSE 3539 3539/tcp
+EXPOSE 58846
 
 # run init.sh to set uid, gid, permissions and to launch flexget
 RUN chmod +x /scripts/init.sh
