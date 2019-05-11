@@ -10,7 +10,7 @@ RUN \
 	if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
 	if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
 	echo "**** install flexget and addons ****" && \
-	apk --no-cache add shadow ca-certificates tzdata py3-cryptography && \
+	apk --no-cache add shadow ca-certificates tzdata py3-cryptography libtorrent && \
 	pip3 install --upgrade \
 		transmissionrpc \
 		python-telegram-bot \
